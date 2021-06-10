@@ -29,14 +29,16 @@ public class LoginServlet extends HttpServlet {
 		userId=request.getParameter("userId");
 		password=request.getParameter("password");
 		
+		
 		LoginService loginService=new LoginService();
 		boolean result= loginService.authenticate(userId, password);
 		
 		if (result){
 			User user= loginService.getUserDetails(userId);
+			request.getSession().setAttribute("user", user);
 			System.out.println("true");
 			response.sendRedirect("success.jsp");
-			
+			return;
 		}
 		else {
 			System.out.println("false");
