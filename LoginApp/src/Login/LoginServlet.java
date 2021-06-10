@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Login.service.LoginService;
+import dto.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -32,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 		boolean result= loginService.authenticate(userId, password);
 		
 		if (result){
+			User user= loginService.getUserDetails(userId);
 			System.out.println("true");
 			response.sendRedirect("success.jsp");
 			

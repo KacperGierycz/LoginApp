@@ -2,6 +2,8 @@ package Login.service;
 
 import java.util.HashMap;
 
+import dto.User;
+
 public class LoginService {
 	
 	HashMap<String,String> users = new HashMap<String,String>();
@@ -26,8 +28,12 @@ public class LoginService {
 		}
 	}
 	
-	public String getUserName(String userId) {
-		return users.get(userId);
+	public User getUserDetails(String userId) {
+		User user= new User();
+		user.setUserName(users.get(userId));
+		user.setUserId(userId);
+		
+		return user;
 		
 	}
 }
