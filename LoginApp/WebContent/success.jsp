@@ -11,7 +11,8 @@
 <h3>Login Successful!</h3>
 
 <%
-User user = (User) session.getAttribute("user");
+// User user = (User) session.getAttribute("user");
+User user = (User) request.getAttribute("user");
 
 %>
 
