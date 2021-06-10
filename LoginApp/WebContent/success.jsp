@@ -10,13 +10,23 @@
 
 <h3>Login Successful!</h3>
 
+<%-- 
 <%
 // User user = (User) session.getAttribute("user");
 User user = (User) request.getAttribute("user");
 
 %>
+ --%>
+ 
+<jsp:useBean id="user" class="dto.User" scope="request">
+	<jsp:setProperty property="userName" name="user" value="NewUser"/>
+</jsp:useBean>
 
+<%-- 
 Hello <%=user.getUserName() %>
+ --%>
+
+<jsp:getProperty property="userName" name="user"/>
 
 </body>
 </html>
